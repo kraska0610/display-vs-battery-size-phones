@@ -1,1 +1,1 @@
-web: gunicorn boston_universities:server
+web: gunicorn Phones_Dash:server
