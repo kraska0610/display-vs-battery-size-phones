@@ -9,6 +9,7 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
 
+pd.set_option('display.max_columns', None)
 stylesheet = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 #pandas dataframe to html table
@@ -27,9 +28,15 @@ def generate_table(dataframe, max_rows=200):
 app = dash.Dash(__name__, external_stylesheets=stylesheet)
 server = app.server
 
-phones =  pd.read_pickle('./phones.pkl')
+phones = pd.read_pickle('./phones.pkl')
+phones = phones.reset_index()
+phones = phones.drop('index', axis = 1)
 # phones = pd.read_csv('/Users/karaska/Desktop/phones_csv')
 # phones = phones.drop('Unnamed: 0', axis = 1)
+
+
+phones['Display Size (inches)'] = phones['Display Size (inches)'].astype('float64')
+phones['Battery (mAh)'] = phones['Battery (mAh)'].astype('int64')
 
     
 fig = px.scatter(phones, x='Display Size (inches)', y='Battery (mAh)', color= 'Brand')
