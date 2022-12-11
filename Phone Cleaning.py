@@ -8,6 +8,7 @@ import pandas as pd
 import matplotlib.pylab as plt
 import plotly.express as px
 from bs4 import BeautifulSoup
+import pickle
 import datetime
 
 headers = {'User-Agent': 'Safari'}
@@ -465,8 +466,9 @@ df = df.sort_values(by = 'Released')
 
 
 df = df[df['Released'].str.contains("202") == True]
+phones_pickle = df.to_pickle('./phones.pkl')
 
-df.to_csv('/Users/karaska/Desktop/phones_csv')  
-phones = pd.read_csv('/Users/karaska/Desktop/phones_csv')
+# df.to_csv('/Users/karaska/Desktop/phones_csv')  
+# phones = pd.read_csv('/Users/karaska/Desktop/phones_csv')
 
 

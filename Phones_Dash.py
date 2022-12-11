@@ -27,9 +27,9 @@ def generate_table(dataframe, max_rows=200):
 app = dash.Dash(__name__, external_stylesheets=stylesheet)
 server = app.server
 
-
-phones = pd.read_csv('/Users/karaska/Desktop/phones_csv')
-phones = phones.drop('Unnamed: 0', axis = 1)
+phones =  pd.read_pickle('./phones.pkl')
+# phones = pd.read_csv('/Users/karaska/Desktop/phones_csv')
+# phones = phones.drop('Unnamed: 0', axis = 1)
 
     
 fig = px.scatter(phones, x='Display Size (inches)', y='Battery (mAh)', color= 'Brand')
