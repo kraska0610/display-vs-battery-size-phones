@@ -6,4 +6,4 @@ Although all of this information would be displayed in a table, I was particular
 
 According to my scatterplot, there is a clear, positive relationship between display size and battery size, and Apple in particular appears to use smaller batteries across the board than other brands.
 
-You can find my dashboard at: http://127.0.0.1:8050/
+You can find my dashboard at: https://display-vs-battery-size-phones.herokuapp.com/
